@@ -20,9 +20,8 @@ type Props = {
 }
 
 const { post } = Astro.props;
-console.log(post)
 ---
 
-<Layout title="">
+<Layout title={`${post.title} | プロムンゲーメモ`}>
     <Article post={post} />
 </Layout>

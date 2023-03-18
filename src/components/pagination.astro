@@ -5,9 +5,11 @@ type Props = {
 }
 
 const { prev, next } = Astro.props;
+
+const className = "btn btn-outline normal-case";
 ---
 
 <div class="btn-group grid grid-cols-2">
-    <a class={prev ? "btn btn-outline" : "btn btn-outline pointer-events-none"} href={prev}>Older Posts</a>
-    <a class={next ? "btn btn-outline" : "btn btn-outline pointer-events-none"} href={next}>Newer Posts</a>
+    <a class={prev ? className : `${className} pointer-events-none`} href={prev}>Older Posts</a>
+    <a class={next ? className : `${className} pointer-events-none`} href={next}>Newer Posts</a>
 </div>
