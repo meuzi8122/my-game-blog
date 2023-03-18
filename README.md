@@ -3,9 +3,6 @@
 
 ## メモ
 
-## Markdown
-- tailwindcss + marked.jsの組合せだとmarkdownがパースされなくなる
-
 ## Tailwind
 
 ### tracking-〇〇
@@ -13,8 +10,6 @@
     - tracking-tightなら`-0.025em`
         - マイナスなので間隔を近づける
 
-## ページネーション
-- offsetを使わない場合
-(追記中)
-- パラメータありの場合
+## 動的ルーティング
+- パラメータありのページネーションの場合
 (追記中)

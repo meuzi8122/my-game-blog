@@ -1,0 +1,33 @@
+---
+import Badge from "../badge.astro";
+import type { Post } from "../../type";
+
+type Props = {
+    post: Post;
+}
+
+const { post } = Astro.props;
+---
+
+
+<article>
+    <div class="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
+        <time>{post.revisedAt}</time>
+        <div class="space-y-5 xl:col-span-3">
+            <div class="space-y-6">
+                <div>
+                    <h2 class="text-2xl font-bold leading-8 tracking-tight mb-1">
+                        <a href={`/articles/${post.id}`}>{post.title}</a>
+                    </h2>
+                    <div class="flex flex-wrap mb-4 space-x-2">
+                        <Badge isPrimary={true} text={post.game.title} />
+                        {post.tags.map(tag => <Badge text={tag} />)}
+                    </div>
+                    <div class="text-base font-medium leading-6">
+                        <a href={`/articles/${post.id}`}>Read more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>

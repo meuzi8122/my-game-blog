@@ -1,17 +1,22 @@
 ---
-import { ArticleClient } from "../client/article";
+import { PostClient } from "../client/post";
 import Layout from "../components/layout.astro";
-import ArticleListItem from "../components/list/item.astro";
+import NonBodyArticle from "../components/article/non-body.astro";
 
-const articles = await ArticleClient.findArticles();
+const posts = await PostClient.findPosts();
 ---
 
 <Layout title="">
 	<div>
+		<div class="divide-y divide-gray-200 dark:divide-gray-700">
+			<div class="space-y-2 pt-6 pb-8 md:space-y-5">
+				<h1 class="text-3xl font-extrabold">最近の投稿</h1>
+			</div>
+		</div>
 		<ul>
-			{articles.map(article => 
+			{posts.map(post => 
 				<>
-					<ArticleListItem article={article} />
+					<li><NonBodyArticle post={post} /></li>
 					<div class="divider"></div>
 				</>
 			)}

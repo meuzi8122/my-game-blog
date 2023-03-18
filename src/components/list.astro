@@ -1,0 +1,21 @@
+---
+import type { Post } from "../type";
+import NonBodyArticle from "./article/non-body.astro";
+
+type Props = {
+    posts: Post[];
+}
+
+const { posts } = Astro.props;
+---
+
+<ul>
+    {posts.map(post => 
+        <>
+            <li>
+                <NonBodyArticle post={post} />
+            </li>
+            <div class="divider"></div>
+        </>
+    )}
+</ul>

@@ -1,7 +1,13 @@
-export type Article = {
+export type Post = {
     id: string;
     title: string;
     body: string;
-    relations: Article[];
+    game: Game;
+    tags: string[];
     revisedAt: string;
+}
+
+export type Game = {
+    id: string;
+    title: string;
 }

@@ -1,0 +1,28 @@
+---
+import { PostClient } from "../../client/post";
+import Layout from "../../components/layout.astro";
+import Article from "../../components/article/index.astro";
+import type { Post } from "../../type";
+
+export async function getStaticPaths() {
+    return (await PostClient.findPosts()).map(post => ({
+        params: {
+            id: post.id
+        },
+        props: {
+            post
+        }
+    }));
+}
+
+type Props = {
+    post: Post;
+}
+
+const { post } = Astro.props;
+console.log(post)
+---
+
+<Layout title="">
+    <Article post={post} />
+</Layout>

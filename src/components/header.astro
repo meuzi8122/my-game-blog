@@ -1,5 +1,20 @@
 <header>
     <div class="navbar bg-base-100">
-        <a href="/" class="btn btn-ghost normal-case text-xl">Title</a>
+        <div class="flex flex-1">
+            <a href="/" class="btn btn-ghost normal-case text-xl">Title</a>
+        </div>
+        <div class="flex-none">
+            <div class="dropdown dropdown-end">
+                <label tabindex="0" class="btn btn-ghost btn-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>   
+                </label>
+                <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                    <li><a href="/posts/lor">Library of Ruina</a></li>
+                    <li><a href="/posts/lcb">Limbus Company</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
 </header>

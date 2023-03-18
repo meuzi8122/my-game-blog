@@ -1,0 +1,10 @@
+---
+type Props = {
+    isPrimary?: boolean;
+    text: string;
+}
+
+const { isPrimary, text } = Astro.props;
+---
+
+<span class={isPrimary ? "badge badge-primary" : "badge"}>{text}</span>
