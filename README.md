@@ -1,7 +1,7 @@
 - npm ci
 - npm run dev
 
-## メモ
+# メモ
 
 ## Tailwind
 

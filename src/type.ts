@@ -1,10 +1,13 @@
-export type Post = {
+export type PostMetaData = {
     id: string;
     title: string;
-    body: string;
     game: Game;
     tags: string[];
     revisedAt: string;
+}
+
+export type Post = PostMetaData & {
+    body: string;
 }
 
 export type Game = {

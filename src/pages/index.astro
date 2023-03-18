@@ -3,7 +3,7 @@ import { PostClient } from "../client/post";
 import Layout from "../components/layout.astro";
 import NonBodyArticle from "../components/article/non-body.astro";
 
-const posts = await PostClient.findPosts();
+const posts = await PostClient.findLatestPostMetaData();
 ---
 
 <Layout title="">

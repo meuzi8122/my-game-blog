@@ -3,7 +3,7 @@ import { PostClient } from "../../client/post";
 import Layout from "../../components/layout.astro";
 import List from "../../components/list.astro";
 
-const posts = await PostClient.findPosts();
+const posts = await PostClient.findPostMetaData("lcb");
 ---
 
 <Layout title="">
