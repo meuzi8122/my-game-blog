@@ -2,7 +2,11 @@
 module.exports = {
 	content: ["./src/**/*.{astro,html}"],
 	theme: {
-		extend: {}
+		extend: {
+			lineHeight: {
+				14: "3.5rem",
+			},
+		}
 	},
 	plugins: [
 		require("@tailwindcss/typography"),
