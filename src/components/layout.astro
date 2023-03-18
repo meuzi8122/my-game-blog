@@ -1,0 +1,26 @@
+---
+import Header from "./header.astro";
+
+type Props = {
+    title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<html lang="ja">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<Header />
+        <!-- slotタグにクラスを適用するのは×  -->
+        <div class="mx-auto mt-3 max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+            <slot class=""></slot>
+        </div>
+	</body>
+</html>
