@@ -1,0 +1,13 @@
+---
+type Props = {
+    prev: string | undefined;
+    next: string | undefined;
+}
+
+const { prev, next } = Astro.props;
+---
+
+<div class="btn-group grid grid-cols-2">
+    <a class={prev ? "btn btn-outline" : "btn btn-outline pointer-events-none"} href={prev}>Older Posts</a>
+    <a class={next ? "btn btn-outline" : "btn btn-outline pointer-events-none"} href={next}>Newer Posts</a>
+</div>
