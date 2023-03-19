@@ -23,7 +23,7 @@ const { post } = Astro.props;
                         <Badge isPrimary={true} text={post.game.title} />
                         {post.tags.map(tag => <Badge text={tag} />)}
                     </div>
-                    <div class="text-base font-medium leading-6">
+                    <div class="text-right text-base font-medium leading-6">
                         <a href={`/posts/${post.id}`}>続きを読む</a>
                     </div>
                 </div>

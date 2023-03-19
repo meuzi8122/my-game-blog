@@ -9,13 +9,17 @@ type Props = {
 const { post } = Astro.props;
 ---
 
-<article class="space-y-1 pb-10">
-    <h1 class="text-3xl font-extrabold leading-9 tracking-tight dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
-        {post.title}
-    </h1>
-    <div class="flex space-x-2">
-        <Badge isPrimary={true} text={post.game.title} />
-        {post.tags.map(tag => <Badge text={tag} />)}
+<article>
+    <div class="space-y-1 pb-10 text-center">
+        <time>{post.revisedAt}</time>
+        <h1 class="text-3xl font-extrabold leading-9 tracking-tight sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
+            {post.title}
+        </h1>
+        <div class="flex space-x-2 justify-center">
+            <Badge isPrimary={true} text={post.game.title} />
+            {post.tags.map(tag => <Badge text={tag} />)}
+        </div>
+        <div class="divider"></div>
     </div>
     <div class="markdown" set:html={post.body}></div>
 </article>
