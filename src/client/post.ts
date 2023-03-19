@@ -1,3 +1,4 @@
+import type { MicroCMSQueries } from "microcms-js-sdk";
 import type { Post, PostMetaData } from "../type";
 import { client } from "./cms";
 import { marked } from "marked";
@@ -6,9 +7,10 @@ export class PostClient {
     
     private static endpoint = "posts";
 
-    private static queries = {
+    private static queries: MicroCMSQueries = {
         fields: "id,title,body,game.id,game.title,tags,revisedAt",
-        limit: 100
+        limit: 100,
+        orders: `-revisedAt`
     }
 
     private static parsePostMetaData(content: any): PostMetaData {
