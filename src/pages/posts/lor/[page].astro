@@ -15,10 +15,9 @@ const { page } = Astro.props;
 
 <Layout title="Library of Ruina | プロムンゲーメモ">
 	<div class="mb-6">
-		<div class="divide-y divide-gray-200 dark:divide-gray-700">
-			<div class="space-y-2 pt-6 pb-8 md:space-y-5">
-				<h1 class="text-3xl font-extrabold">Library of Ruina</h1>
-			</div>
+		<div class="space-y-2 pt-6 pb-8 md:space-y-5">
+			<h1 class="text-3xl font-extrabold">Library of Ruina</h1>
+			<div class="divider"></div>
 		</div>
         {page.data.length && (
             <List posts={page.data} />
