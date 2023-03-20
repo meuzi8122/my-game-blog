@@ -1,7 +1,7 @@
 ---
 import { PostClient } from "../client/post";
 import Layout from "../components/layout.astro";
-import NonBodyArticle from "../components/article/non-body.astro";
+import List from "../components/list.astro";
 
 const posts = await PostClient.findLatestPostMetaData();
 ---
@@ -14,13 +14,6 @@ const posts = await PostClient.findLatestPostMetaData();
 				<div class="divider"></div>
 			</div>
 		</div>
-		<ul>
-			{posts.map(post => 
-				<>
-					<li><NonBodyArticle post={post} /></li>
-					<div class="divider"></div>
-				</>
-			)}
-		</ul>
+		<List posts={posts} />
 	</div>
 </Layout>

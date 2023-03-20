@@ -1,10 +1,10 @@
+import { marked } from "marked";
 import type { MicroCMSQueries } from "microcms-js-sdk";
 import type { Post, PostMetaData } from "../type";
 import { client } from "./cms";
-import { marked } from "marked";
 
 export class PostClient {
-    
+
     private static endpoint = "posts";
 
     private static queries: MicroCMSQueries = {
@@ -28,21 +28,14 @@ export class PostClient {
     private static parsePost(content: any): Post {
         return {
             ...this.parsePostMetaData(content),
-            body: marked(content.body)
+            body: marked(content.body).replace(/<hr>/g, "<div></div>")
         }
     }
 
     static async findLatestPostMetaData(): Promise<PostMetaData[]> {
         return (await client.get({
             endpoint: this.endpoint,
-            queries: {...this.queries, limit: 5},
-        })).contents.map((content: any)=> this.parsePostMetaData(content));
-    }
-
-    static async findPostMetaData(gameId: string): Promise<PostMetaData[]> {
-        return (await client.get({
-            endpoint: this.endpoint,
-            queries: {...this.queries, filters: `game[equals]${gameId}`}
+            queries: { ...this.queries, limit: 5 },
         })).contents.map((content: any) => this.parsePostMetaData(content));
     }
 

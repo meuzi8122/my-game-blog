@@ -18,6 +18,7 @@
     "tailwindcss": "^3.2.7"
   },
   "devDependencies": {
+    "@playwright/test": "^1.31.2",
     "@types/marked": "^4.0.8"
   }
 }
