@@ -11,8 +11,8 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
     const lor: Game = {id: "lor", title: "Library of Ruina"}
     const lcb: Game = {id: "lcb", title: "Limbus Company"}
 
-    const lorPosts = posts.filter(post => post.game.id === "lor");
-    const lcbPosts = posts.filter(post => post.game.id === "lcb");
+    const lorPosts = posts.filter(post => post.game.id === lor.id);
+    const lcbPosts = posts.filter(post => post.game.id === lcb.id);
 
     return [
         paginate(lorPosts, { params: { gameId: lor.id }, props: { game: lor } }),
