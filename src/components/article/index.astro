@@ -24,24 +24,6 @@ const { post } = Astro.props;
         <div class="divider"></div>
     </div>
     <div class="markdown" set:html={post.body} />
-    <ul>
-        <li>
-            親リスト1
-            <ul>
-                <li>子リスト1-1</li>
-                <li>子リスト1-2</li>
-                <li>子リスト1-3</li>
-            </ul>
-        </li>
-        <li>
-            親リスト2
-            <ul>
-                <li>子リスト2-1</li>
-                <li>子リスト2-2</li>
-            </ul>
-        </li>
-        <li>親リスト3</li>
-    </ul>
 </article>
 
 <style is:global>
