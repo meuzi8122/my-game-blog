@@ -4,7 +4,7 @@ import Badge from "../badge.astro";
 
 type Props = {
     post: Post;
-}
+};
 
 const { post } = Astro.props;
 ---
@@ -12,38 +12,55 @@ const { post } = Astro.props;
 <article>
     <div class="space-y-1 pb-10 text-center">
         <time>{post.revisedAt}</time>
-        <h1 class="text-3xl font-extrabold leading-9 tracking-tight sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
+        <h1
+            class="text-3xl font-extrabold leading-9 tracking-tight sm:text-4xl sm:leading-10 md:text-5xl md:leading-14"
+        >
             {post.title}
         </h1>
         <div class="flex space-x-2 justify-center">
             <Badge isPrimary={true} text={post.game.title} />
-            {post.tags.map(tag => <Badge text={tag} />)}
+            {post.tags.map((tag) => <Badge text={tag} />)}
         </div>
         <div class="divider"></div>
     </div>
-    <div class="markdown" set:html={post.body}></div>
+    <div class="markdown" set:html={post.body} />
+    <ul>
+        <li>
+            親リスト1
+            <ul>
+                <li>子リスト1-1</li>
+                <li>子リスト1-2</li>
+                <li>子リスト1-3</li>
+            </ul>
+        </li>
+        <li>
+            親リスト2
+            <ul>
+                <li>子リスト2-1</li>
+                <li>子リスト2-2</li>
+            </ul>
+        </li>
+        <li>親リスト3</li>
+    </ul>
 </article>
 
 <style is:global>
+    /* Markdownの箇条書きはul・liに変換される */
+    /* @apply "tailwindcssのクラス名"でスタイルを適用する */
 
-/* Markdownの箇条書きはul・liに変換される */
-/* @apply "tailwindcssのクラス名"でスタイルを適用する */
+    .markdown ul {
+        /* 箇条書き */
+        @apply list-disc;
+    }
 
-.markdown ul {
-    /* 箇条書き */
-    @apply list-disc;
-}
+    .markdown h2 {
+        @apply text-2xl font-bold;
+    }
 
-.markdown h2 {
-    @apply text-2xl font-bold;
-}
+    .markdown p {
+    }
 
-.markdown p {
-    
-}
-
-.markdown hr {
-    @apply border-solid;
-}
-
+    .markdown div {
+        @apply divider;
+    }
 </style>

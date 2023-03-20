@@ -3,7 +3,6 @@ import type { GetStaticPathsOptions } from "astro";
 import { PostClient } from "../../../client/post";
 import Layout from "../../../components/layout.astro";
 import List from "../../../components/list.astro";
-import Pagination from "../../../components/pagination.astro";
 import type { Game,Post } from "../../../type";
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
@@ -42,6 +41,8 @@ type Props = {
 }
 
 const { page, game } = Astro.props;
+
+const paginationClassName = "btn btn-outline normal-case";
 ---
 
 <Layout title={`${game.title} | プロムンゲーメモ`}>
@@ -53,6 +54,12 @@ const { page, game } = Astro.props;
             </div>
         </div>
         <List posts={page.data} />
-        {page.total && <Pagination prev={page.url.prev} next={page.url.next} />}
+        {page.total && 
+            <div class="btn-group grid grid-cols-2">
+                <a class={page.url.prev ? paginationClassName : `${paginationClassName} pointer-events-none`} href={page.url.prev}>Older Posts</a>
+                <a class={page.url.next ? paginationClassName : `${paginationClassName} pointer-events-none`} href={page.url.next}>Newer Posts</a>
+            </div>
+        }
     </div>
 </Layout>
+
