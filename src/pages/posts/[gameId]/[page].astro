@@ -8,16 +8,12 @@ import type { Game,Post } from "../../../type";
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
     const posts = await PostClient.findPosts();
 
-    const lor: Game = {id: "lor", title: "Library of Ruina"}
-    const lcb: Game = {id: "lcb", title: "Limbus Company"}
+    const GAMES: Game[] = [{id: "lor", title: "Library of Ruina"}, {id: "lcb", title: "Limbus Company"}];
 
-    const lorPosts = posts.filter(post => post.game.id === lor.id);
-    const lcbPosts = posts.filter(post => post.game.id === lcb.id);
-
-    return [
-        paginate(lorPosts, { params: { gameId: lor.id }, props: { game: lor } }),
-        paginate(lcbPosts, { params: { gameId: lcb.id }, props: { game: lcb } }),
-    ];
+    return GAMES.map(game => paginate(
+        posts.filter(post => post.game.id === game.id),
+        { params: { gameId: game.id }, props: { game } }
+    ));
 }
 
 type Props = {
