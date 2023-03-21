@@ -12,7 +12,7 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
 
     return GAMES.map(game => paginate(
         posts.filter(post => post.game.id === game.id),
-        { pagesize: 5, params: { gameId: game.id }, props: { game } }
+        { pageSize: 5, params: { gameId: game.id }, props: { game } }
     ));
 }
 
