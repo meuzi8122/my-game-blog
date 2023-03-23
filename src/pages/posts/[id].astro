@@ -1,23 +1,23 @@
 ---
 import { PostClient } from "../../client/post";
 import Layout from "../../components/layout.astro";
-import Article from "../../components/article/index.astro";
+import PostRenderer from "../../components/post.astro";
 import type { Post } from "../../type";
 
 export async function getStaticPaths() {
-    return (await PostClient.findPosts()).map(post => ({
+    return (await PostClient.findPosts()).map((post) => ({
         params: {
-            id: post.id
+            id: post.id,
         },
         props: {
-            post
-        }
+            post,
+        },
     }));
 }
 
 type Props = {
     post: Post;
-}
+};
 
 const { post } = Astro.props;
 ---
@@ -25,7 +25,7 @@ const { post } = Astro.props;
 <Layout title={`${post.title} | プロムンゲーメモ`}>
     <main class="mb-auto">
         <div class="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
-            <Article post={post} />
+            <PostRenderer post={post} />
         </div>
     </main>
 </Layout>

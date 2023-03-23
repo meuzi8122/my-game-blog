@@ -28,7 +28,7 @@ export class PostClient {
     private static parsePost(content: any): Post {
         return {
             ...this.parsePostMetaData(content),
-            body: marked(content.body).replace(/<hr>/g, "<div></div>")
+            body: marked(content.body)
         }
     }
 

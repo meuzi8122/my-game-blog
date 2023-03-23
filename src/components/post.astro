@@ -1,6 +1,6 @@
 ---
-import type { Post } from "../../type";
-import Badge from "../badge.astro";
+import type { Post } from "../type";
+import Badge from "./badge.astro";
 
 type Props = {
     post: Post;
@@ -27,22 +27,29 @@ const { post } = Astro.props;
 </article>
 
 <style is:global>
-    /* Markdownの箇条書きはul・liに変換される */
-    /* @apply "tailwindcssのクラス名"でスタイルを適用する */
-
     .markdown ul {
-        /* 箇条書き */
-        @apply list-disc;
+        @apply list-disc list-inside pl-4 mb-4;
     }
-
+    .markdown h1,
+    h2,
+    h3 {
+        @apply font-bold mb-4;
+    }
+    .markdown h1,
+    h2,
+    h3 {
+        @apply border-b-2 border-solid border-base-content border-opacity-30;
+    }
+    .markdown h1 {
+        @apply text-3xl pb-2;
+    }
     .markdown h2 {
-        @apply text-2xl font-bold;
+        @apply text-2xl;
     }
-
+    .markdown h3 {
+        @apply text-lg;
+    }
     .markdown p {
-    }
-
-    .markdown div {
-        @apply divider;
+        @apply mb-4;
     }
 </style>
