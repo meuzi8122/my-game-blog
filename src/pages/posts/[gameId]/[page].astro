@@ -30,7 +30,7 @@ type Props = {
 
 const { page, game } = Astro.props;
 
-const paginationClassName = "btn btn-outline normal-case";
+const PAGINATION_CLASS_NAME = "btn btn-outline normal-case";
 ---
 
 <Layout title={`${game.title} | プロムンゲーメモ`}>
@@ -44,8 +44,8 @@ const paginationClassName = "btn btn-outline normal-case";
         <List posts={page.data} />
         {page.total && 
             <div class="btn-group grid grid-cols-2">
-                <a class={page.url.prev ? paginationClassName : `${paginationClassName} pointer-events-none`} href={page.url.prev}>Older Posts</a>
-                <a class={page.url.next ? paginationClassName : `${paginationClassName} pointer-events-none`} href={page.url.next}>Newer Posts</a>
+                <a class={page.url.prev ? PAGINATION_CLASS_NAME : `${PAGINATION_CLASS_NAME} pointer-events-none`} href={page.url.prev}>Older Posts</a>
+                <a class={page.url.next ? PAGINATION_CLASS_NAME : `${PAGINATION_CLASS_NAME} pointer-events-none`} href={page.url.next}>Newer Posts</a>
             </div>
         }
     </div>
