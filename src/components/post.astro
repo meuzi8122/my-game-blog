@@ -34,11 +34,8 @@ const { post } = Astro.props;
     .markdown h2, h3 {
         @apply font-bold mb-4;
     }
-    .markdown h2, h3 {
-        @apply border-b-2 border-solid border-base-content border-opacity-10;
-    }
     .markdown h2 {
-        @apply text-2xl;
+        @apply text-2xl border-b-2 border-solid border-base-content border-opacity-10;
     }
     .markdown h3 {
         @apply text-lg;
