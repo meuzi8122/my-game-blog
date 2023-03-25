@@ -21,7 +21,6 @@ const { post } = Astro.props;
             <Badge isPrimary={true} text={post.game.title} />
             {post.tags.map((tag) => <Badge text={tag} />)}
         </div>
-        <div class="divider"></div>
     </div>
     <div class="markdown" set:html={post.body} />
 </article>
