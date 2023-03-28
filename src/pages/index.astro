@@ -7,13 +7,9 @@ const posts = await PostClient.findLatestPostMetaData();
 ---
 
 <Layout title="プロムンゲーメモ">
-	<div>
-		<div>
-			<div class="space-y-2 pt-6 pb-8 md:space-y-5">
-				<h1 class="text-3xl font-extrabold">最近の投稿</h1>
-				<div class="divider"></div>
-			</div>
-		</div>
-		<List posts={posts} />
+	<div class="space-y-2 pt-6 pb-8 md:space-y-5">
+		<h1 class="text-3xl font-extrabold">最近の投稿</h1>
+		<div class="divider"></div>
 	</div>
+	<List posts={posts} />
 </Layout>
